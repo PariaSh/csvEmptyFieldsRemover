@@ -76,9 +76,13 @@ func printFiledIndices(header []string, indices []int) {
 	fmt.Printf("-------------------\n")
 	for i, e := range header {
 		fmt.Printf("|%-15s|", e)
-		for _, j := range indices {
-			if i == j {
-				fmt.Print("Y")
+		if len(indices) == 0{
+			fmt.Print("Y")
+		}else{
+			for _, j := range indices {
+				if i == j {
+					fmt.Print("Y")
+				}
 			}
 		}
 		fmt.Printf("\n")

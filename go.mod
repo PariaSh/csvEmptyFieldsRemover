@@ -1,3 +1,3 @@
-module github.com/lingt-xyz/csvEmptyFiledsRemover
+module github.com/lingt-xyz/csvEmptyFieldsRemover
 
 go 1.13
