@@ -1,6 +1,12 @@
 # csvEmptyFieldsRemover
 Remove rows that contain empty fields
 
+## Output
+
+Two files to be expected.
+
+If the input file is `test.csv`
+The output files would be in the same folder with names `test.csv-non-empty`, and `test.csv-empty`
 
 ## How to run it
 
