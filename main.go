@@ -27,7 +27,7 @@ func getParameters() (string, []int) {
 		for _, i := range strings.Split(*indexes, ",") {
 			index, err := strconv.Atoi(strings.TrimSpace(i))
 			if err != nil {
-				log.Fatalf("Indexes should be the format: \"number[, number]\"; but got: %v", *indexes)
+				log.Fatalf("Indexes should be of the format: \"number[, number]\"; but got: %v", *indexes)
 			}
 			indices = append(indices, index)
 		}
