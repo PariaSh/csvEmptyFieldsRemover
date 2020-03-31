@@ -9,6 +9,7 @@ import (
 	"strings"
 )
 
+// updateCSV is the main method. It removes rows that have empty fields at `indices`
 func updateCSV(filePath string, indices []int) {
 	inputCSV, err := os.Open(filePath)
 	if err != nil {
@@ -16,6 +17,7 @@ func updateCSV(filePath string, indices []int) {
 	}
 	defer inputCSV.Close() // this needs to be after the err check
 
+	// write the result to two file so it's easy to validate empty fields.
 	outputNonEmptyCSV, err1 := os.Create(filePath + "-non-empty")
 	outputEmptyCSV, err2 := os.Create(filePath + "-empty")
 	if err1 != nil || err2 != nil {
@@ -56,7 +58,7 @@ row:
 			_ = nonEmptyWriter.Write(record)
 		} else {
 			for i := range record {
-				// this way can avoid index of range
+				// doing it in this way can avoid index of range
 				for _, j := range indices {
 					if i == j {
 						if strings.TrimSpace(record[i]) == "" {
@@ -71,6 +73,7 @@ row:
 	}
 }
 
+// printFiledIndices prints which fields has user chosen to check
 func printFiledIndices(header []string, indices []int) {
 	log.Printf("You checked the following fileds:")
 	fmt.Printf("-------------------\n")
