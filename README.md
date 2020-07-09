@@ -1,3 +1,6 @@
+# Deprecated
+Use `goTool`
+
 # csvEmptyFieldsRemover
 Remove rows that contain empty fields
 
